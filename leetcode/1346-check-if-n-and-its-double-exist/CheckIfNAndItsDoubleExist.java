@@ -1,3 +1,5 @@
+package leetcode.CheckIfNAndItsDoubleExist;
+
 class Solution {
     public boolean checkIfExist(int[] a) {
         int[] cache = new int[2000 * 2 + 1];
@@ -16,8 +18,6 @@ class Solution {
 
 public class CheckIfNAndItsDoubleExist {
     public static void main(String[] arguments) {
-        // int[] a = { 0, 0 };
-        // int[] a = { 10, 2, -5, 3 };
         int[] a = { -1, 2, 0, -4 };
 
         System.out.println((new Solution()).checkIfExist(a));
