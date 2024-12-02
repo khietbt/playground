@@ -3,8 +3,6 @@ class Solution {
         int[] cache = new int[2000 * 2 + 1];
 
         for (int i = 0; i < a.length; i++) {
-            // int currentValue = a[i];
-
             if (cache[a[i] * 2 + 2000] != 0 || (a[i] % 2 == 0 && cache[a[i] / 2 + 2000] != 0)) {
                 return true;
             }
