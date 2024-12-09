@@ -1,3 +1,3 @@
 # playground
 
-Games on leetcode, hackerank, codility
+Games on leetcode, hackerank, codility.
