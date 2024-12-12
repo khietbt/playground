@@ -23,8 +23,6 @@ class Solution {
       queue.offer((int) Math.sqrt(max));
     }
 
-    System.out.println(queue);
-
     return queue.stream().mapToLong(Long::valueOf).reduce(0, Long::sum);
   }
 }
