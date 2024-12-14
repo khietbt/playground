@@ -1,3 +1,6 @@
+import java.util.Deque;
+import java.util.LinkedList;
+
 public class ContinuousSubarrays {
   public static void main(String[] args) {
     System.out.println((new Solution()).continuousSubarrays(new int[] { 5, 4, 2, 4 }));
@@ -7,31 +10,41 @@ public class ContinuousSubarrays {
 
 class Solution {
   public long continuousSubarrays(int[] numbers) {
-    long sum = 0;
+    long totalContinuousSubarrays = 0;
 
-    for (int i = 0; i < numbers.length; i++) {
-      int min = numbers[i];
-      int max = numbers[i];
+    Deque<Integer> maximums = new LinkedList<>();
+    Deque<Integer> minimums = new LinkedList<>();
 
-      int j = i + 1;
+    int right = 0;
+    int left = 0;
 
-      for (; j < numbers.length; j++) {
-        if (numbers[j] < min) {
-          min = numbers[j];
+    for (; right < numbers.length; right++) {
+      while (!maximums.isEmpty() && numbers[right] > numbers[maximums.peekLast()]) {
+        maximums.pollLast();
+      }
+
+      while (!minimums.isEmpty() && numbers[right] < numbers[minimums.peekLast()]) {
+        minimums.pollLast();
+      }
+
+      maximums.offerLast(right);
+      minimums.offerLast(right);
+
+      while (numbers[maximums.peekFirst()] - numbers[minimums.peekFirst()] > 2) {
+        left++;
+
+        if (minimums.peekFirst() < left) {
+          minimums.pollFirst();
         }
 
-        if (numbers[j] > max) {
-          max = numbers[j];
-        }
-
-        if (max - min > 2) {
-          break;
+        if (maximums.peekFirst() < left) {
+          maximums.pollFirst();
         }
       }
 
-      sum += j - i;
+      totalContinuousSubarrays += right - left + 1;
     }
 
-    return sum;
+    return totalContinuousSubarrays;
   }
 }
