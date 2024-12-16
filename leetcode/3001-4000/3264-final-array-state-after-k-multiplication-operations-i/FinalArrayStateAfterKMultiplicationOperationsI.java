@@ -24,8 +24,6 @@ class Solution {
       numbers[index] *= multiplier;
 
       queue.offer(index);
-
-      System.out.println(Arrays.toString(numbers));
     }
 
     return numbers;
