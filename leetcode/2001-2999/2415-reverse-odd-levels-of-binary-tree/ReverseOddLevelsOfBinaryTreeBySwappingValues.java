@@ -1,12 +1,16 @@
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Deque;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
-public class ReverseOddLevelsOfBinaryTree {
+public class ReverseOddLevelsOfBinaryTreeBySwappingValues {
   public static void main(String[] args) {
     int[] values = new int[31];
 
     for (int i = 0; i < 31; i++) {
-      values[i] = i + 1;
+      values[i] = i;
     }
 
     TreeNode root = TreeNode.fromValues(values);
@@ -93,67 +97,37 @@ class TreeNode {
 
 class Solution {
   public TreeNode reverseOddLevels(TreeNode root) {
-    int level = 0;
-    int i = 0;
+    List<TreeNode> nodes = new ArrayList<>();
+    Queue<TreeNode> queue = new LinkedList<>();
 
-    Deque<TreeNode> queue = new ArrayDeque<>();
-    Deque<TreeNode> nextQueue = new ArrayDeque<>();
-
-    queue.offerLast(root);
-
-    if (root.left != null) {
-      nextQueue.offerLast(root.left);
-      nextQueue.offerLast(root.right);
-    }
+    queue.add(root);
 
     while (!queue.isEmpty()) {
-      TreeNode node = queue.pollFirst();
+      TreeNode node = queue.poll();
 
-      if (nextQueue.isEmpty()) {
-        node.left = null;
-        node.right = null;
+      nodes.add(node);
 
-        continue;
+      if (node.left != null) {
+        queue.add(node.left);
+        queue.add(node.right);
+      }
+    }
+
+    for (int i = 0, level = 0, n = 1, start = 0, mid = 0; i < nodes.size(); i++) {
+      if (level % 2 == 1 && i >= mid) {
+        TreeNode right = nodes.get(i);
+        TreeNode left = nodes.get(mid - (i - mid) - 1);
+
+        int t = right.val;
+        right.val = left.val;
+        left.val = t;
       }
 
-      if (level % 2 == 0) {
-        TreeNode left = nextQueue.pollLast();
-        TreeNode right = nextQueue.pollLast();
-
-        node.left = left;
-        node.right = right;
-
-        queue.offerLast(left);
-        queue.offerLast(right);
-
-        if (left.left != null) {
-          nextQueue.offerFirst(left.right);
-          nextQueue.offerFirst(left.left);
-          nextQueue.offerFirst(right.right);
-          nextQueue.offerFirst(right.left);
-        }
-      } else {
-        TreeNode left = nextQueue.pollFirst();
-        TreeNode right = nextQueue.pollFirst();
-
-        node.left = left;
-        node.right = right;
-
-        queue.offerLast(left);
-        queue.offerLast(right);
-
-        if (left.left != null) {
-          nextQueue.offerLast(left.left);
-          nextQueue.offerLast(left.right);
-          nextQueue.offerLast(right.left);
-          nextQueue.offerLast(right.right);
-        }
-      }
-
-      i++;
-
-      if (i == ((1 << (level + 1)) - 1)) {
+      if (i == start + n - 1) {
         level++;
+        n = 1 << level;
+        start = (1 << level) - 1;
+        mid = start + n / 2;
       }
     }
 
