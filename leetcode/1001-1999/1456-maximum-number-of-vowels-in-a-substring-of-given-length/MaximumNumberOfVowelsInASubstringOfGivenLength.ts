@@ -1,5 +1,5 @@
 function maxVowels(s: string, k: number): number {
-  const evaluate = c => "aoeiu".indexOf(c) < 0 ? 0 : 1;
+  const evaluate = (c: string): number => "aoeiu".indexOf(c) < 0 ? 0 : 1;
 
   const length = s.length;
 
@@ -10,13 +10,10 @@ function maxVowels(s: string, k: number): number {
   }
 
   let current = max;
-  console.log(`current=${current}, max=${max}`);
 
   for (let i = k; i < length && max < k; i++) {
-    console.log(`current=${current}, max=${max}`);
     current = current + evaluate(s[i]) - evaluate(s[i - k]);
     max = Math.max(current, max);
-    console.log(`current=${current}, max=${max}`);
   }
 
 
