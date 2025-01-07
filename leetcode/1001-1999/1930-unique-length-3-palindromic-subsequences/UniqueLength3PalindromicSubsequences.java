@@ -3,7 +3,7 @@ import java.util.Set;
 
 public class UniqueLength3PalindromicSubsequences {
   public static void main(String[] args) {
-    System.out.println(new Solution().countPalindromicSubsequence("bbcbaba"));
+    System.out.println(new Solution().countPalindromicSubsequence("aabca"));
   }
 }
 
