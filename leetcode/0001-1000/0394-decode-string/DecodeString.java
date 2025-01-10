@@ -1,5 +1,3 @@
-import java.util.Stack;
-
 public class DecodeString {
   public static void main(String[] args) {
     // String encoded = "2[abc]3[cd]ef";
