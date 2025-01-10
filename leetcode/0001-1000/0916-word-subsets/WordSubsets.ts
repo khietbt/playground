@@ -13,7 +13,7 @@ function wordSubsets(words1: string[], words2: string[]): string[] {
     }, initialized()
   );
 
-  const maxConverted = (words: string[]) => words2.reduce((accumulated, value) => {
+  const maxConverted = () => words2.reduce((accumulated, value) => {
     const converted = convert(value);
 
     alphabets.forEach(
@@ -23,7 +23,7 @@ function wordSubsets(words1: string[], words2: string[]): string[] {
     return accumulated;
   }, initialized());
 
-  const max = maxConverted(words2);
+  const max = maxConverted();
 
   const isValid = (w: string) => {
     const converted = convert(w);
