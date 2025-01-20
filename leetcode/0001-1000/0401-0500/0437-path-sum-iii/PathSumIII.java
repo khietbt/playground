@@ -42,9 +42,6 @@ class Solution {
       return 0;
     }
 
-    // System.out.println(target + ", " + accumulated + ", " + node.val + ", " +
-    // (accumulated + node.val));
-
     accumulated += node.val;
 
     int totalPaths = (accumulated == target ? 1 : 0);
