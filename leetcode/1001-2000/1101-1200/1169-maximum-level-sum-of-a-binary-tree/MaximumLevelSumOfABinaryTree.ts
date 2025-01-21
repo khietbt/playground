@@ -34,7 +34,17 @@ function maxLevelSum(root: TreeNode | null): number {
 
   bfs(root, 0);
 
-  return Math.max(...sums);
+  let level = 0;
+  let max = sums[0];
+
+  for (let i = 1; i < sums.length; i++) {
+    if (max < sums[i]) {
+      max = sums[i];
+      level = i;
+    }
+  }
+
+  return level + 1;
 };
 
 const root = new TreeNode(
