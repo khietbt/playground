@@ -54,7 +54,7 @@ const maxChainLength = (favourites: number[]): number => {
     }
   }
 
-  return distances.filter((v, i) => i === favourites[favourites[i]])
+  return distances.filter((_, i) => i === favourites[favourites[i]])
     .reduce((accumulated, value) => accumulated + value, 0);
 }
 
