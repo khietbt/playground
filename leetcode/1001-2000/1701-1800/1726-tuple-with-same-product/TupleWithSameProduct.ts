@@ -6,8 +6,8 @@ function tupleSameProduct(numbers: number[]): number {
     for (let j = i + 1; j < numbers.length; j++) {
       const product = numbers[i] * numbers[j];
 
+      tuples += (m.get(product) ?? 0) + 1;
       m.set(product, (m.get(product) ?? 0) + 1);
-      tuples *= 8;
     }
   }
 
