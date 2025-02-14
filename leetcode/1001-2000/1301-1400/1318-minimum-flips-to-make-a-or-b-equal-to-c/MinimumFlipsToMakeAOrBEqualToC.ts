@@ -1,7 +1,7 @@
 function minFlips(a: number, b: number, c: number): number {
   let flips = 0;
 
-  while (a !== 0 && b !== 0 && c !== 0) {
+  while (a !== 0 || b !== 0 || c !== 0) {
     const x = a & 1;
     const y = b & 1;
     const z = c & 1;
@@ -20,4 +20,8 @@ function minFlips(a: number, b: number, c: number): number {
 };
 
 
-console.log(minFlips(2, 6, 5));
+// console.log(minFlips(2, 6, 5));
+console.log(minFlips(8, 3, 5));
+// 1000
+// 0011
+// 0101
