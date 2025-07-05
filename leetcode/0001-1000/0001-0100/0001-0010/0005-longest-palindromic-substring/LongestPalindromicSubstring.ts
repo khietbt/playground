@@ -1,26 +1,33 @@
-function longestPalindrome(s: string): string {
-  const n = s.length
-  const m: boolean[][] = new Array(n).fill(0).map(() => new Array(n).fill(true));
+const longestPalindrome = (s: string): string => {
+  if (!s) {
+    return "";
+  }
 
-  let startIndex = 0;
-  let maxLength = 1;
+  let start = 0;
+  let length = 1;
 
-  for (let i = n - 2; i >= 0; i--) {
-    for (let j = i + 1; j < n; j++) {
-      m[i][j] = false;
+  const palindrome = "#" + s.split("").join("#") + "#";
+  const lps: number[] = new Array(palindrome.length).fill(0);
 
-      if (s[i] === s[j]) {
-        m[i][j] = m[i + 1][j - 1];
+  for (let i = 0; i < palindrome.length; i++) {
+    let j = 0;
 
-        if (m[i][j] && maxLength < j - i + 1) {
-          maxLength = j - i + 1;
-          startIndex = i;
-        }
-      }
+    while (
+      i - j - 1 >= 0 &&
+      i + j + 1 < palindrome.length &&
+      palindrome[i - j - 1] === palindrome[i + j + 1]
+    ) {
+      lps[i]++;
+      j++;
+    }
+
+    if (lps[i] > length) {
+      length = lps[i];
+      start = i;
     }
   }
 
-  return s.substring(startIndex, startIndex + maxLength);
-};
+  return s.substring((start - length) / 2, (start + length + 1) / 2);
+}
 
-console.log(longestPalindrome("abaabd"));
+console.log(longestPalindrome("bbaabba"));
