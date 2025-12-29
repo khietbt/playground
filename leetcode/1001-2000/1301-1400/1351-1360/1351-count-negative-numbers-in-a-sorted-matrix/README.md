@@ -27,3 +27,5 @@ row-wise and column-wise, return _the number of **Negative** numbers in_ `grid`.
 - `n == grid[i].length`
 - `1 <= m, n <= 100`
 - `-100 <= grid[i][j] <= 100`
+
+**Follow up:** Could you find an `O(n + m)` solution?
