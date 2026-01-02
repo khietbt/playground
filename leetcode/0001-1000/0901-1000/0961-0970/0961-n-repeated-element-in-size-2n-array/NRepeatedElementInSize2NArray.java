@@ -1,0 +1,22 @@
+public class NRepeatedElementInSize2NArray {
+
+  public static void main(String[] args) {
+    var solution = new Solution();
+
+    System.out.println(solution.repeatedNTimes(new int[] { 1, 2, 3, 3 }));
+    System.out.println(solution.repeatedNTimes(new int[] { 2, 1, 2, 5, 3, 2 }));
+    System.out.println(solution.repeatedNTimes(new int[] { 5, 1, 5, 2, 5, 3, 5, 4 }));
+  }
+}
+
+class Solution {
+  public int repeatedNTimes(int[] nums) {
+    for (var i = 0; i < nums.length - 2; i++) {
+      if (nums[i] == nums[i + 1] || nums[i] == nums[i + 2]) {
+        return nums[i];
+      }
+    }
+
+    return nums[nums.length - 1];
+  }
+}
