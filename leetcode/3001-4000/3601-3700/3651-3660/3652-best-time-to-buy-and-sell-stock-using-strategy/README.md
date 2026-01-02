@@ -2,7 +2,7 @@
 
 You are given two integer arrays `prices` and `strategy`, where:
 
-- prices[i] is the price of a given stock on the `i$^th$` day.
+- `prices[i]` is the price of a given stock on the `i$^th$` day.
 - `strategy[i]` represents a trading action on the `i$^th$` day, where:
   - `-1` indicates buying one unit of the stock.
   - `0` indicates holding the stock.
@@ -11,7 +11,7 @@ You are given two integer arrays `prices` and `strategy`, where:
 You are also given an **even** integer `k`, and may perform **at most one**
 modification to `strategy`. A modification consists of:
 
-- Selecting exactly `k` \*\*consecutive``elements in`strategy`.
+- Selecting exactly `k` **consecutive** elements in `strategy`.
 - Set the **first** `k / 2` elements to `0` (hold).
 - Set the **last** `k / 2` elements to `1` (sell).
 
@@ -61,7 +61,7 @@ and sell operations are feasible regardless past actions.
 > | ----------------- | ------------ | ------------------------------------------- | ---------: |
 > | Original          | `[1, 1, 0]`  | (1 x 5) + (1 x 4) + (0 x 3) = 5 + 4 + 0 = 9 |          9 |
 > | Modify `[0, 1]`   | `[0, 1, 0]`  | (0 x 5) + (1 x 4) + (0 x 3) = 0 + 4 + 0 = 4 |          4 |
-> | Original `[1, 2]` | `[1, 0, 1]`  | (1 x 5) + (0 x 4) + (1 x 3) = 5 +0 + 3 = 8  |          8 |
+> | Original `[1, 2]` | `[1, 0, 1]`  | (1 x 5) + (0 x 4) + (1 x 3) = 5 + 0 + 3 = 8 |          8 |
 >
 > Thus, the maximum possible profit is 9, which is achieved without any modification.
 
