@@ -1,5 +1,5 @@
 function new21Game(n: number, k: number, maxPts: number): number {
-  if (n >= k + maxPts) {
+  if (k === 0) {
     return 1;
   }
 
@@ -7,25 +7,23 @@ function new21Game(n: number, k: number, maxPts: number): number {
 
   data[0] = 1;
 
+  let s = 1;
+
   for (let i = 1; i <= n; i++) {
-    for (let j = 1; j <= maxPts; j++) {
-      if (i - j >= 0 && i - j < k) {
-        data[i] += data[i - j] / maxPts;
-      }
+    data[i] = s / maxPts;
+
+    if (i < k) {
+      s += data[i];
+    }
+
+    if (i < k + maxPts && i >= maxPts) {
+      s -= data[i - maxPts];
     }
   }
 
-  var total = 0;
-
-  for (let i = k; i <= n; i++) {
-    total += data[i];
-  }
-
-  return total;
+  return data.filter((_, i) => i >= k).reduce((sum, v) => sum + v, 0);
 }
 
 // console.log(new21Game(10, 1, 10));
-//
 // console.log(new21Game(6, 1, 10));
-
 console.log(new21Game(21, 17, 10));
