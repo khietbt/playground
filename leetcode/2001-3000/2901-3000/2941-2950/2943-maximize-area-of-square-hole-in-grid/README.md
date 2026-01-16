@@ -71,4 +71,4 @@ grid, after removing some bars (possibly none).
 - `2 <= hBars[i] <= n + 1`
 - `2 <= vBars[i] <= m + 1`
 - All values in `hBars` are distinct.
-- All values in `vBars` are distinct
+- All values in `vBars` are distinct.
