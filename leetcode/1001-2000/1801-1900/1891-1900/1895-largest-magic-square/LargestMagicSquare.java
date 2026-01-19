@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class LargestMagicSquare {
 
   public static void main(String[] args) {
