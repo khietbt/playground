@@ -82,3 +82,5 @@ Return _the **minimum** possible sum of the cost of these subarrays_.
 
 - `3 <= n <= 10$^5$`
 - `1 <= nums[i] <= 10$^9$`
+- `3 <= k <= n`
+- `k - 2 <= dist <= n - 2`
