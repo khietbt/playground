@@ -11,7 +11,7 @@ afterwards.
 
 Given an integer `n`, return _the number of people who know the secret at the
 end of day_ `n`. Since the answer may be very large, return it **modulo**
-`10<<sup>9</sup> + 7`.
+`10$^9$ + 7`.
 
 **Example 1:**
 
