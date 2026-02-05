@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.PriorityQueue;
 import java.util.TreeMap;
 
 public class SortVowelsInAString {
@@ -14,7 +13,6 @@ public class SortVowelsInAString {
 class Solution {
   public String sortVowels(String s) {
     var characters = s.toCharArray();
-    var queue = new PriorityQueue<Character>();
     var vowels = new ArrayList<Integer>();
 
     var data = new TreeMap<Character, Integer>();
