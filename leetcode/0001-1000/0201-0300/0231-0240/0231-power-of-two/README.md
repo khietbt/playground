@@ -33,3 +33,9 @@ An integer `n` is a power of two, if there exists an integer `x` such that
 > - `n = 3`
 >
 > **Output:** false
+
+**Constraints:**
+
+- `-2$^31$ <= n <= 2`
+
+**Follow up:** Could you solve it without loops / recursion?
