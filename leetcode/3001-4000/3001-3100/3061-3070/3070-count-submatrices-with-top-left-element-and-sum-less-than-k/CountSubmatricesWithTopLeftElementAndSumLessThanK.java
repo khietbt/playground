@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class CountSubmatricesWithTopLeftElementAndSumLessThanK {
 
   public static void main(String[] args) {
