@@ -17,17 +17,15 @@ class Solution {
     var m = grid.length;
     var n = grid[0].length;
 
-    var p = new int[m + 1][n + 1];
+    var y = new int[m + 1][n + 1];
     var x = new int[m + 1][n + 1];
 
     for (var i = 0; i < m; i++) {
       for (var j = 0; j < n; j++) {
-        var val = grid[i][j] == 'X' ? 1 : (grid[i][j] == 'Y' ? -1 : 0);
-
-        p[i + 1][j + 1] = val + p[i][j + 1] + p[i + 1][j] - p[i][j];
         x[i + 1][j + 1] = (grid[i][j] == 'X' ? 1 : 0) + x[i][j + 1] + x[i + 1][j] - x[i][j];
+        y[i + 1][j + 1] = (grid[i][j] == 'Y' ? 1 : 0) + y[i][j + 1] + y[i + 1][j] - y[i][j];
 
-        if (p[i + 1][j + 1] == 0 && x[i + 1][j + 1] > 0) {
+        if (x[i + 1][j + 1] == y[i + 1][j + 1] && x[i + 1][j + 1] > 0) {
           total++;
         }
       }
