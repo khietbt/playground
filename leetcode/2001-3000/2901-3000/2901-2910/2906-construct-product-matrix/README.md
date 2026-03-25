@@ -46,3 +46,5 @@ Return _the product matrix of `grid`_.
 
 - `1 <= n == grid.length <= 10$^5$`
 - `1 <= m == grid[i].length <= 10$^5$`
+- `2 <= n x m <= 10$^5$`
+- `1 <= grid[i][j] <= 10$^9$`
