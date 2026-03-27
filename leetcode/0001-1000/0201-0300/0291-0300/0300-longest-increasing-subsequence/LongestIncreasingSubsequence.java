@@ -1,31 +1,31 @@
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class LongestIncreasingSubsequence {
+
   public static void main(String[] args) {
     var solution = new Solution();
 
     System.out.println(solution.lengthOfLIS(
-        new int[] { 10, 9, 2, 5, 3, 7, 101, 18 }));
+        new int[] { 0, 1, 0, 2, 3, 2, 3 }));
   }
 }
 
 class Solution {
   public int lengthOfLIS(int[] nums) {
-    var longest = new int[nums.length];
-    longest[0] = nums[0];
-    var size = 1;
+    var longest = new ArrayList<Integer>();
 
-    for (var i = 1; i < nums.length; i++) {
-      if (longest[size - 1] < nums[i]) {
-        longest[size++] = nums[i];
+    for (var n : nums) {
+      if (longest.isEmpty() || longest.get(longest.size() - 1) < n) {
+        longest.add(n);
         continue;
       }
 
-      var j = Arrays.binarySearch(longest, 0, size, nums[i]);
+      var i = Collections.binarySearch(longest, n);
 
-      longest[j < 0 ? (-j - 1) : j] = nums[i];
+      longest.set(i < 0 ? (-i - 1) : i, n);
     }
 
-    return size;
+    return longest.size();
   }
 }
