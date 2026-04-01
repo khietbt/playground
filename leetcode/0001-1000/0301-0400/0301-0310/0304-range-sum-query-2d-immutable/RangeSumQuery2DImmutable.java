@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class RangeSumQuery2DImmutable {
   public static void main(String[] args) {
     var numMatrix = new NumMatrix(
