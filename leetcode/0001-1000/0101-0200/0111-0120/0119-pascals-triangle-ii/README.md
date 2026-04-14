@@ -20,7 +20,7 @@ it as shown:
 
 > **Input:**
 >
-> - `rowIndex = 1`
+> - `rowIndex = 0`
 >
 > **Output:** `[[1]]`
 
