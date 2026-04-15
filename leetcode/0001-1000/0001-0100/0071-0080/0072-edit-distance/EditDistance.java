@@ -1,0 +1,39 @@
+public class EditDistance {
+
+  public static void main(String[] args) {
+    var solution = new Solution();
+
+    System.out.println(solution.minDistance("horse", "ros"));
+    System.out.println(solution.minDistance("intention", "execution"));
+  }
+}
+
+class Solution {
+  public int minDistance(String word1, String word2) {
+    var m = word1.length();
+    var n = word2.length();
+    var dp = new int[m + 1][n + 1];
+
+    dp[0][0] = 0;
+
+    for (var i = 1; i < m; i++) {
+      dp[i][0] = i;
+    }
+
+    for (var j = 1; j < n; j++) {
+      dp[0][j] = j;
+    }
+
+    for (var i = 1; i <= m; i++) {
+      for (var j = 1; j <= n; j++) {
+        if (word1.charAt(i - 1) == word2.charAt(j - 1)) {
+          dp[i][j] = dp[i - 1][j - 1];
+        } else {
+          dp[i][j] = Math.min(dp[i - 1][j - 1], Math.min(dp[i - 1][j], dp[i][j - 1])) + 1;
+        }
+      }
+    }
+
+    return dp[m][n];
+  }
+}
