@@ -51,3 +51,5 @@ this array. If the third maximum does not exist, return the **maximum** number_.
 
 - `1 <= nums.length <= 10$^4$`
 - `-2$^31$ <= nums[i] <= 2$^31$ - 1`
+
+**Follow up:** Can you find an `O(n)` solution.
