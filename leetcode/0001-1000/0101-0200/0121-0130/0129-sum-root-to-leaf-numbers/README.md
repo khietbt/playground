@@ -45,3 +45,9 @@ A **leaf** node is a node with no children.
 > - The root-to-leaf path `4 --> 0` represents the number 40.
 >
 > Therefore, sum = 495 + 491 + 40 = `1026`.
+
+**Constraints:**
+
+- The number of nodes in the tree in the range `[1, 1000]`.
+- `0 <= node.val <= 9`
+- The depth of the tree will not exceed `10`.
