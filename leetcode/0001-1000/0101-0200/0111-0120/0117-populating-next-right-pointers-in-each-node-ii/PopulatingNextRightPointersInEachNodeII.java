@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class PopulatingNextRightPointersInEachNode {
+public class PopulatingNextRightPointersInEachNodeII {
 
   public static void main(String[] args) {
     System.out.println();
